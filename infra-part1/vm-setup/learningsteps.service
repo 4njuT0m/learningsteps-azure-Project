@@ -1,0 +1,16 @@
+[Unit]
+Description=LearningSteps API (FastAPI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=learningsteps
+Group=learningsteps
+WorkingDirectory=/opt/learningsteps/api
+EnvironmentFile=/opt/learningsteps/.env
+ExecStart=/opt/learningsteps/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
