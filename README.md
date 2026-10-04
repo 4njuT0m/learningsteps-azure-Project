@@ -1,3 +1,5 @@
+
+> **Part 1 (Azure 2-tier deployment):** see the [technical writeup](docs/part1/WRITEUP.md).
 # LearningSteps API
 
 Welcome to LearningSteps! LearningSteps is a Python FastAPI + PostgreSQL application that helps people track their daily learning journey. This is a reference implementation, deploy this to the cloud!
