@@ -48,6 +48,7 @@ LearningSteps is a FastAPI app with a PostgreSQL database for tracking a daily l
 ![Docker WSL integration](screenshots/p1-04-docker-wsl-integration.png)
 ![Docker in Ubuntu](screenshots/p1-05-docker-in-ubuntu.png)
 ![Dev Container connected](screenshots/p1-06-devcontainer-connected.png)
+![App running locally](screenshots/p1-07-app-running.png)
 ![Swagger UI local](screenshots/p1-08-swagger-docs.png)
 ![GET 501](screenshots/p1-09-get-entry-501.png)
 
@@ -65,6 +66,7 @@ LearningSteps is a FastAPI app with a PostgreSQL database for tracking a daily l
 ![Reference changes](screenshots/p1-10-reference-changes.png)
 ![GET 200](screenshots/p1-13-get-entry-200.png)
 ![GET 404](screenshots/p1-14-get-entry-404.png)
+![Delete by ID](screenshots/p1-15-delete-entry.png)
 ![test_api.py local](screenshots/p1-16-test-api-local.png)
 ![test_api.py local](screenshots/p1-16b-test-api-local.png)
 
@@ -157,6 +159,16 @@ LearningSteps is a FastAPI app with a PostgreSQL database for tracking a daily l
 ![After vm-api restart](screenshots/p1-43-persist-after-api-restart.png)
 ![After vm-db restart](screenshots/p1-44-persist-after-db-restart.png)
 ![SSH from other network](screenshots/p1-45-ssh-other-network.png)
+
+## Infrastructure as code
+
+To rebuild this setup without doing every step by hand, the repo has an `infra-part1/` folder:
+
+- `azure-template/`: the Azure resources exported from the Portal (Automation, Export template). I replaced my subscription ID with a placeholder.
+- `vm-setup/setup-vm-db.sh` and `vm-setup/setup-vm-api.sh`: scripts with the same steps I ran by hand on vm-db and vm-api. They ask for the database password, so no password is stored in the repo.
+- `vm-setup/learningsteps.service` and `vm-setup/nginx-learningsteps.conf`: the systemd and nginx files used on vm-api.
+
+The steps are in [infra-part1/README.md](../../infra-part1/README.md). The exported template is a starting point. It came from a running setup and may need small fixes before it deploys cleanly.
 
 ## Security decisions
 
