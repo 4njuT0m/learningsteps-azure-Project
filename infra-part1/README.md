@@ -21,11 +21,14 @@ Either create them in the Portal with the values in the writeup, or deploy the e
 ```bash
 az group create --name rg-learningsteps --location germanywestcentral
 SUB_ID=$(az account show --query id -o tsv)
-sed "s/<subscription-id>/${SUB_ID}/g" infra-part1/azure-template/template.json > /tmp/template.json
+MY_IP=$(curl -s https://api.ipify.org)
+MY_EMAIL="you@example.com"
+sed -e "s/<subscription-id>/${SUB_ID}/g" -e "s/<your-ip>/${MY_IP}/g" -e "s/<your-email>/${MY_EMAIL}/g" \
+  infra-part1/azure-template/template.json > /tmp/template.json
 az deployment group create --resource-group rg-learningsteps --template-file /tmp/template.json
 ```
 
-The template uses `<subscription-id>` as a placeholder. The `sed` line above fills in your own subscription ID from `az account show`, so it is never stored in the repo. Run these commands in bash (for example in the Dev Container).. The template was exported from a running setup, so it may need small fixes before it deploys cleanly. Test it in a new resource group before relying on it.
+The template uses `<subscription-id>`, `<your-ip>` and `<your-email>` as placeholders. Set `MY_EMAIL` to the address for auto-shutdown notifications. The `sed` line fills in all three, so none of them is stored in the repo. Run these commands in bash, for example in the Dev Container. The template was exported from a running setup, so it may need small fixes before it deploys cleanly. Test it in a new resource group before relying on it.
 
 ### 2. Database server (vm-db)
 

@@ -388,7 +388,7 @@
                 "notificationSettings": {
                     "status": "Enabled",
                     "timeInMinutes": 30,
-                    "emailRecipient": "anju.thomas@cybersteps.onmicrosoft.com",
+                    "emailRecipient": "<your-email>",
                     "notificationLocale": "en"
                 },
                 "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_api_name'))]"
@@ -415,7 +415,7 @@
                 "notificationSettings": {
                     "status": "Enabled",
                     "timeInMinutes": 30,
-                    "emailRecipient": "anju.thomas@cybersteps.onmicrosoft.com",
+                    "emailRecipient": "<your-email>",
                     "notificationLocale": "en"
                 },
                 "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_db_name'))]"
